@@ -98,38 +98,27 @@ disp(A)
 
 
 ---
-TD 2 - Exemple
+TD 2 - Commandes utiles
 ---
 
-scf() -> Créer une figure vide
+Fig=gcf() -> Créer une figure vide
+Axes=gca() -> Création d'un pointeur pour accéder à tous les paramètres.
 scf(1) -> Permet de naviguer entre les figures (se déplacer sur la 1)
 
-X=[-4 -2 2 4 4 2 -2 -4 -4 0]
+plot([0 0],[-10 20]) -> Créer une droite sur un axe
+[ Axe des abscisse ], [ Axes des ordonnées ]
 
-Y=[0 -2 -2 0 2 4 4 2 0 1]
 
-plot(X,Y,'dm','markersiz',10,'markbackground','cyan','thickness',3)
+Axes.data_bounds=[-4,-10;6,15] -> Modifier les paramètres des axes.
+Axes.auto_scale= "off"
 
---> plot -> Créer un axe sur le même graphique
-
---
-Les commandes ci-dessus fabriquent un graphique avec des couleurs en fond...
---
-
-Fig=gcf()
-
-Fig.background=30
-
-Axes=gca() -> Création d'un pointeur pour accéder à tous les paramètres.
-
+plot -> Créer un axe sur le même graphique
+Fig.background=30 -> Fabrique un graphique avec des couleurs en fond
 Axes.background=15
 
---
-Les commandes ci-dessus permettent de changer les couleurs du fond et de la figure
---
-Axes.auto_scale="off"
-Axes.data_bounds=[-6,-4;6,6]
-
+MonPolyline3 = Axes.children.children(1) -> MonPolyline3 est un alias sur la dernière figure ajoutée
+MonPolyline1.line_mode=on
+MonPolyline1.line_style=2
 
 ---
 TD 2 - Exercice 4
