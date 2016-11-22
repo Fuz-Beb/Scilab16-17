@@ -1,1 +1,210 @@
-firstCommit
+clc ou clc(n) -> efface la console, ou à n lignes
+clear ou clear var -> supprime toutes les variables ou une variable
+
+___
+TD 1 - EXERCICE 1
+___
+
+A=zeros(5,5) ou A=ones(5,5) ou A=ones(5,5)+1 -> Permet de créer une matrice de 0 ou 1
+
+
+A=C([3 : 8] , 5 : 10) -> Permet de stocker dans A la sous matrice de C composée des lignes 3 à 8 et colonnes 5 à 10.
+
+//REVOIR E=D>0.5
+
+D=rand(6,6) -> Permet de créer une matrice 6x6 random/aléatoire.
+
+D.*E -> Permet de faire le produit de 2 matrices coefficient par coefficient (termes à termes). (Fausse matrice)
+
+E=round(D) -> Permet d'arrondir une matrice D en mettant des 0 et 1 selon l'entier.
+
+V1=D(3,:) -> Permet de créer un vecteur par rapport à la ligne 3 de la matrice D
+
+V2=V2' -> Permet de convertir un vecteur/matrice colonne vers ligne ou ligne vers colonne.
+
+___
+TD 1 - EXERCICE 2
+___
+
+A(2,4)=24 -> Permet de mettre à 24 le coefficient ligne 2 et colonne 4.
+
+A(3,:)=3 -> Permet de mettre tous les éléments de la troisième ligne à 3.
+
+B=A([4 3 2 1],:) -> Permet de créer une matrice
+
+
+---
+TD 2 - Exemple
+
+---
+
+scf() -> Créer une figure vide
+scf(1) -> Permet de naviguer entre les figures (se déplacer sur la 1)
+
+X=[-4 -2 2 4 4 2 -2 -4 -4 0]
+
+Y=[0 -2 -2 0 2 4 4 2 0 1]
+
+plot(X,Y,'dm','markersiz',10,'markbackground','cyan','thickness',3)
+
+--> plot -> Créer un axe sur le même graphique
+
+--
+Les commandes ci-dessus fabrique un graphique avec des couleurs en fond...
+
+---
+
+Fig=gcf()
+
+Fig.background=30
+
+Axes=gca() -> Création d'un pointeur pour accéder à tous les paramètres.
+
+Axes.background=15
+
+--
+Les commandes ci-dessus permet de changer les couleurs du fond et de la figure
+---
+
+Axes.auto_scale="off"
+Axes.data_bounds=[-6,-4;6,6]
+
+
+---
+Exercice 4
+---
+Fig=gcf()
+Axes=gca() --> Charge en mémoire les axes présent sur la fenêtre graphique
+MonPolyline3 = Axes.children.children(3) -> Permet de faire un alias du 3 ème plot qui a été saisie au préalable
+
+
+
+MonPolyline1.line_mode="on"
+
+
+MonPolyline3 = Axes.children.children(1)
+MonPolyline2 = Axes.children.children(2)
+MonPolyline1 = Axes.children.children(3)
+
+MonPolyline1.line_mode=on
+MonPolyline1.line_style=2
+MonPolyline1.thickness=3
+MonPolyline1.mark_style=1
+
+---
+Execice 5
+--- Carré
+Fig=gcf()
+Axes=gca()
+
+Axes.data_bounds=[-2,-2;2,2]
+
+plot([-1 -1],[-1 1])
+plot([-1 1],[1 1])
+plot([1 1],[1 -1])
+plot([1 -1],[-1 -1])
+
+TRIANGLE :
+
+plot([-1 -1],[-1 1],'red')
+plot([-1 0.5],[1 1],'red')
+plot([0.5 -1],[1 -1],'red')
+
+
+Supprimer un mauvais trais :
+
+MonPoly = Axes.children.children(1)
+delete(MonPoly)
+
+
+MEDIANE :
+
+plot([-1 -0.25],[1 0],'black')
+plot([-1 0.5],[0 1],'black')
+plot([-1 -0.25],[-1 1],'black')
+
+MonPolyline1 = Axes.children.children(1)
+MonPolyline2 = Axes.children.children(2)
+MonPolyline3 = Axes.children.children(3)
+
+MonPolyline1.line_style=2
+MonPolyline2.line_style=2
+MonPolyline3.line_style=2
+
+
+---
+EXERCICE 6
+---
+Fig=gcf()
+Axes=gca()
+
+Axes.auto_scale="off"
+
+Axes.data_bounds=[-4,-10;6,14]
+plot([-4 6],[0 0], 'blue')
+plot([0 0],[-10 14], 'blue')
+
+
+x=[-4:0.1:6]
+y=(-3)*x+1
+plot(x,y,'green')
+
+y=x^2-4*x-5
+plot(x,y)
+MonPoly = Axes.children.children(1)
+MonPoly.foreground=6
+
+# Création d'une ligne
+plot([-2 -2],[0 7],'red')
+MonPoly.line_style=3
+
+
+# Création d'un point
+plot([-2 -2],[7 7],'red')
+MonPoly.mark_style=9
+MonPoly = Axes.children.children(1)
+MonPoly.mark_size=10
+MonPoly.mark_foreground=5
+
+# Création d'un point
+plot([3 3],[-8 -8],'red')
+MonPoly = Axes.children.children(1)
+MonPoly.mark_style=9
+MonPoly.mark_size=10
+MonPoly.mark_foreground=5
+
+
+plot([3 3],[-8 0],'red')
+
+
+
+___
+TD 2 - bis
+___
+
+
+xarc(-1,1,1,2,0,360*64)
+
+-1 = bas du cercle
+1 = haut du cercle
+1 = largeur du cercle
+2 = hauteur du cercle
+0 = cercle et non eclipse
+64  = cercle
+
+
+A=[1 -3 -2 6; 2 -4 3 8; -3 6 8 5]
+
+
+
+
+---
+NOTE
+---
+delete(MonContenaire) -> Permet de supprimer un contenaire.
+
+subplot(2,2,2) -> permet de faire des sous graphiques sur la même figure
+
+clf -> Efface la figure courante
+
+MonPoly.thickness=3 -> épaiseur d'un trait / grosseur d'un trait / taille d'un trait
