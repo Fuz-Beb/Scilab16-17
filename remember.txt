@@ -35,7 +35,6 @@ B=A([4 3 2 1],:) -> Permet de créer une matrice
 
 ---
 TD 2 - Exemple
-
 ---
 
 scf() -> Créer une figure vide
@@ -63,7 +62,7 @@ Axes=gca() -> Création d'un pointeur pour accéder à tous les paramètres.
 Axes.background=15
 
 --
-Les commandes ci-dessus permet de changer les couleurs du fond et de la figure
+Les commandes ci-dessus permettent de changer les couleurs du fond et de la figure
 ---
 
 Axes.auto_scale="off"
@@ -71,7 +70,7 @@ Axes.data_bounds=[-6,-4;6,6]
 
 
 ---
-Exercice 4
+TD 2 - Exercice 4
 ---
 Fig=gcf()
 Axes=gca() --> Charge en mémoire les axes présent sur la fenêtre graphique
@@ -92,7 +91,7 @@ MonPolyline1.thickness=3
 MonPolyline1.mark_style=1
 
 ---
-Execice 5
+TD 2 -Execice 5
 --- Carré
 Fig=gcf()
 Axes=gca()
@@ -133,7 +132,7 @@ MonPolyline3.line_style=2
 
 
 ---
-EXERCICE 6
+TD 2 - EXERCICE 6
 ---
 Fig=gcf()
 Axes=gca()
@@ -176,13 +175,9 @@ MonPoly.mark_foreground=5
 
 plot([3 3],[-8 0],'red')
 
-
-
 ___
 TD 2 - bis
 ___
-
-
 xarc(-1,1,1,2,0,360*64)
 
 -1 = bas du cercle
@@ -195,7 +190,95 @@ xarc(-1,1,1,2,0,360*64)
 
 A=[1 -3 -2 6; 2 -4 3 8; -3 6 8 5]
 
+---
+TD 4 - EXERCICE 1 et 2
+---
+Fichier de dépendance (DialMat.sci) [FICHIER PROF] :
+--
+function A=DialMat(m,n)
+  IntitulesLignes = [];
+  for i=1:m  
+      IntitulesLignes(i)='L'+string(i);
+  end
+  IntitulesColonnes = [];
+  for j=1:n  
+      IntitulesColonnes(j)='C'+string(j);
+  end
+  MatDefaut = [];
+  for j=1:n  
+      MatDefaut(1,j)='';
+  end
+ 
+  for i=2:m  
+      MatDefaut=[MatDefaut;MatDefaut(1,:)];
+  end
 
+   A= evstr(x_mdialog('Votre réponse',IntitulesLignes, IntitulesColonnes,MatDefaut));
+endfunction
+
+
+function MessBoxMat(A)
+    for i=1:size(A,1)
+        s(i)="";
+        for j=1:size(A,2)
+            s(i)=s(i)+sprintf("%d\t\t\t",A(i,j));
+        end
+    end
+    messagebox(s);
+endfunction
+--
+
+---
+Fichier pour addition matrice :
+--
+exec('DialMat.sci', -1)
+
+ligne=grand(1,1,'uin',1,3)
+colonne=grand(1,1,'uin',1,3)
+
+M1=grand(ligne,colonne,'uin',1,6)
+M2=grand(ligne,colonne,'uin',1,6)
+
+disp("Faire la somme de :")
+disp("Matrice A :")
+disp(M1)
+disp("Matrice B :")
+disp(M2)
+
+if(DialMat(ligne,colonne) == (M1 + M2)) then
+    disp("Bon résultat");
+    
+    else
+    disp("Mauvais résultat, réponse : ");
+    disp(M1 + M2);
+    end,
+--
+
+---
+Fichier pour multiplication matrice :
+--
+exec('DialMat.sci', -1)
+
+ligne=grand(1,1,'uin',1,3)
+colonne=grand(1,1,'uin',1,3)
+
+M1=grand(ligne,colonne,'uin',1,6)
+M2=grand(colonne,ligne, 'uin',1,6)
+
+disp("Faire la somme de :")
+disp("Matrice A :")
+disp(M1)
+disp("Matrice B :")
+disp(M2)
+
+if(DialMat(ligne,ligne) == (M1 * M2)) then
+    disp("Bon résultat");
+    
+    else
+    disp("Mauvais résultat, réponse : ");
+    disp(M1 * M2);
+    end,
+--
 
 
 ---
