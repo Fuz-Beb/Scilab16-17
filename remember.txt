@@ -113,9 +113,8 @@ plot(X,Y,'dm','markersiz',10,'markbackground','cyan','thickness',3)
 --> plot -> Créer un axe sur le même graphique
 
 --
-Les commandes ci-dessus fabrique un graphique avec des couleurs en fond...
-
----
+Les commandes ci-dessus fabriquent un graphique avec des couleurs en fond...
+--
 
 Fig=gcf()
 
@@ -127,8 +126,7 @@ Axes.background=15
 
 --
 Les commandes ci-dessus permettent de changer les couleurs du fond et de la figure
----
-
+--
 Axes.auto_scale="off"
 Axes.data_bounds=[-6,-4;6,6]
 
@@ -140,10 +138,7 @@ Fig=gcf()
 Axes=gca() --> Charge en mémoire les axes présent sur la fenêtre graphique
 MonPolyline3 = Axes.children.children(3) -> Permet de faire un alias du 3 ème plot qui a été saisie au préalable
 
-
-
 MonPolyline1.line_mode="on"
-
 
 MonPolyline3 = Axes.children.children(1)
 MonPolyline2 = Axes.children.children(2)
@@ -193,7 +188,6 @@ MonPolyline3 = Axes.children.children(3)
 MonPolyline1.line_style=2
 MonPolyline2.line_style=2
 MonPolyline3.line_style=2
-
 
 ---
 TD 2 - EXERCICE 6
@@ -342,6 +336,30 @@ if(DialMat(ligne,ligne) == (M1 * M2)) then
     disp("Mauvais résultat, réponse : ");
     disp(M1 * M2);
     end,
+--
+---
+Statistiques et régressions linéaires 
+---
+Part 1 :
+--
+n=300
+U1=grand(1,n,"unf",0,1);
+U2=grand(1,n,"unf",0,1);
+R=sqrt(-2*log(U1));
+T=2*%pi*U2;
+X=round(30+sqrt(60*1/3*2/3)*R.*cos(T));
+moyenne=mean(X); // Permet de calculer la moyenne
+ecartType=stdev(X); // Permet de calculer l'écart type
+mediane=median(X); // permet de calculer la médiane/mediane
+
+disp("Moyenne :")
+disp(moyenne)
+
+disp("Écart-type :")
+disp(ecartType)
+
+disp("Médiane :")
+disp(mediane)
 --
 
 
