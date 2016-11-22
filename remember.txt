@@ -5,22 +5,32 @@ ___
 TD 1 - EXERCICE 1
 ___
 
-A=zeros(5,5) ou A=ones(5,5) ou A=ones(5,5)+1 -> Permet de créer une matrice de 0 ou 1
+A=[1 2 3 ; 4 5 6 ; 7 8 9] = Matrice 3x3 allant de 1 à 9
 
+A=zeros(5,5) ou A=ones(5,5) ou A=ones(5,5)+1 ou B = 2*A -> Permet de créer une matrice de 0 ou 1
 
-A=C([3 : 8] , 5 : 10) -> Permet de stocker dans A la sous matrice de C composée des lignes 3 à 8 et colonnes 5 à 10.
+C=[A zeros(5,5);zeros(5,5) B] -> Permet de créer une matrice contenant les valeurs d'autres matrices
 
-//REVOIR E=D>0.5
+A=C(3 : 8, 5 : 10) -> Permet de stocker dans A la sous matrice de C composée des lignes 3 à 8 et colonnes 5 à 10.
 
-D=rand(6,6) -> Permet de créer une matrice 6x6 random/aléatoire.
+D=grand(6,6,"unf",0,1) ou D=rand(6,6) -> Permet de créer une matrice 6x6 random/aléatoire.
 
-D.*E -> Permet de faire le produit de 2 matrices coefficient par coefficient (termes à termes). (Fausse matrice)
+E=1*(D>0.5) -> créer une matrice E de taille équivalente à D, dont chaque élément (i,j)
+vaut 1 si D(i,j)>0.5, et 0 sinon.
 
 E=round(D) -> Permet d'arrondir une matrice D en mettant des 0 et 1 selon l'entier.
 
+D*E -> Produit matriciel de D par E.
+
+D.*E -> Permet de faire le produit de 2 matrices coefficient par coefficient (termes à termes). (Fausse matrice)
+
 V1=D(3,:) -> Permet de créer un vecteur par rapport à la ligne 3 de la matrice D
 
-V2=V2' -> Permet de convertir un vecteur/matrice colonne vers ligne ou ligne vers colonne.
+V2=D(:,4) -> Permet de créer un vecteur par rapport à la colonne 4 de la matrice D
+
+V1*V2, V2*V1 -> Produits matriciels de deux vecteurs
+
+V2=V2' ou V1.*V2' -> Permet de convertir un vecteur/matrice colonne vers ligne ou ligne vers colonne.
 
 ___
 TD 1 - EXERCICE 2
@@ -30,7 +40,61 @@ A(2,4)=24 -> Permet de mettre à 24 le coefficient ligne 2 et colonne 4.
 
 A(3,:)=3 -> Permet de mettre tous les éléments de la troisième ligne à 3.
 
-B=A([4 3 2 1],:) -> Permet de créer une matrice
+A(:,2)=-2 -> Permet de mettre tous les éléments de la deuxième colonne à -2
+
+B=A([4 3 2 1],:) -> Permet de créer une matrice avec les lignes inversées
+
+B=[A([3 4],:)' A(:,[1 4]) A([1 2],:)'] -> Créer une matrice B 4x6 dont les deux premières colonnes sont les deux dernières lignes de A, les deux dernières colonnes sont les deux premières lignes de A et les deux colonnes du milieu sont la première et la dernière colonne de A.
+
+Petit exemple :
+---------------
+
+Soit la matrice A =
+    
+    1.    2.    3.   
+    4.    5.    6.  
+    7.    8.    9.
+
+B=[A([1 2],:)']
+
+    1.    4.  
+    2.    5.  
+    3.    6. 
+
+B=[A([1 2],:)]
+
+    1.    2.    3.  
+    4.    5.    6.  
+
+
+size(B) = 2.  3.
+
+
+___
+TD 1 - EXERCICE 3
+___
+
+Un système de Cramer est un système avec n équations et n inconnues. Sa matrice associé doit être inversible donc son déterminant doit être non nul.
+
+Pour résoudre un système de Cramer, il est nécessaire de créer la première matrice (coté gauche du système), puis de créer la seconde matrice (coté droit du système), puis de faire :
+
+x = A\b
+
+x est matrice de même dimension que b contenant les résultats du système. A est le coté gauche, b le coté droit.
+
+
+___
+TD 1 - EXERCICE 5
+___
+
+// crée une matrice A nxn dont le coef Aij vaut i+j
+for i=[1:n]
+    for j= [1:n]
+        A(i,j)=i+j;
+    end
+end
+disp(A)
+
 
 
 ---
