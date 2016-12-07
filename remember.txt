@@ -350,6 +350,46 @@ disp(ecartType)
 disp("Médiane :")
 disp(mediane)
 --
+---
+TD5
+---
+Resoudre/résolution d'un système d'équations linéaires :
+
+2x+y=1
+3x+7y=-2
+
+
+A = [2 1 ; 3 7]
+B = [ 1 ; -2 ]
+
+A\B
+
+OU plus simple
+
+linesolve(A, B)
+
+--
+
+Mettre un système linéaires sous forme échelonnée
+x+x-2x+4x=5
+2x+2x-3x+x=3
+3x+3x-4x-2x+1x=1
+
+
+A=[1 2 -2 4 5 ; 2 2 -3 1 3 ; 3 3 -4 -2 1]
+rref(A)
+
+--
+Exercice 9
+--
+Calcul de la comatrice
+
+B=[det(A([2 3], [2 3])) -det(A([2 3] , [1 3])) det(A([2 3] , [1 2])) ; -det(A([1 3] , [2 3])) det(A([1 3] , [1 3])) -det(A([1 3] , [1 2])) ; det(A([1 2] , [2 3])) -det(A([1 2] , [1 3])) det(A([1 2] , [1 2]))]
+
+C = [-5 -1 1 ; 2 4 -2 ; 1 -3 1]
+
+D=1/-2 * C
+
 
 
 ---
@@ -362,3 +402,5 @@ subplot(2,2,2) -> permet de faire des sous graphiques sur la même figure
 clf -> Efface la figure courante
 
 MonPoly.thickness=3 -> épaiseur d'un trait / grosseur d'un trait / taille d'un trait
+
+racine carré = sqrt(2)
