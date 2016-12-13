@@ -1,6 +1,5 @@
 clc ou clc(n) -> efface la console, ou à n lignes
 clear ou clear var -> supprime toutes les variables ou une variable
-
 ___
 TD 1 - EXERCICE 1
 ___
@@ -420,6 +419,25 @@ TD Diagonalisation/diagonalisé
     
 -> Permet d'echelonner une matrice.
 
+--
+• poly permet de dé    P=poly([6 -5 1],"x","coeff") crée le polynôme P (x) = x² − 5x + 6
+    Q=poly([-2.5 1.5 0 1],"t","c") crée le polynôme Q(t) = t3 + 3/2 ∗ t − 5/2
+    R=poly([-1 -3],"x","roots") crée le polynôme en x dont les racines sont -1 et -3 => R(x) = x² + 4x + 3
+    R=poly([-1 x2 + 4x + 3; -3],"x","roots") : idem
+    S=poly([1 -2 1],"t","r") crée le polynôme en t qui admet 1 comme racine double et -2 comme racine simple => S(t) = t3(cube) − 3t + 2
+• derivat(P) calcule le polynôme dérivé de P.
+• roots(P) calcule les racines du polynôme P.
+• P + Q et P ∗ Q calculent respectivement la somme et le produit des polynômes P et Q, à condition que ce soient des polynômes en la même variable.
+
+
+Diagonalisation.
+• poly(A,"t") calcule le polynôme caractéristique de la matrice A
+• spec(A) calcule les vecteurs et valeurs propres de la matrice A, sous réserve d'existence. Plus
+précisément :
+    spec(A) renvoie un vecteur composé des valeurs propres de A
+    [V D]= spec(A) renvoie dans D la matrice diagonalisée de A et dans V une base de vecteur propres. Sous réserve que A soit diagonalisable
+
+--
 
 ---
 NOTE
